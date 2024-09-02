@@ -1,14 +1,11 @@
-from PySide6.QtWidgets import QPushButton
 import os
 import json
 
 app_path = os.path.dirname(os.path.dirname(__file__))
 
-def make_task(self, priority, text, description, due_date, initial=False):
-        task = QPushButton(text)
-
-def handle_button_click():
-        print("Button clicked!")
+def handle_button_click(button):
+        button_text = button.text()  # Get the text of the button
+        print("Button pressed:", button_text)
 
 def load_json(filename='data/tasks.json'):
     with open(os.path.join(app_path, filename), "r") as file:
@@ -26,7 +23,7 @@ def write_json(new_data, priority, filename='data/tasks.json'):
         json.dump(file_data, file, indent = 4)
 
 
-def load_tasks_from_dict(data):
+def load_tasks_from_dict(app_class, app, data):
     for y in data.keys():
         for i in range(data[y].__len__()):
-            Application.make_task(app, y, data[y][i]["text"], data[y][i]["description"], data[y][i]["due_date"], True)
+            app_class.make_task(app, y, data[y][i]["text"], data[y][i]["description"], data[y][i]["due_date"], True)

@@ -3,21 +3,24 @@
         {
             "text": "This is a high priority task",
             "description": "this is a description",
-            "due_date": "This is a due date"
+            "due_date": "This is a due date",
+            "id": 0
         }
     ],
     "medium": [
         {
             "text": "This is a medium priority task",
             "description": "this is a description",
-            "due_date": "This is a due date"
+            "due_date": "This is a due date",
+            "id": 1
         }
     ],
     "low": [
         {
             "text": "This is a low priority task",
             "description": "this is a description",
-            "due_date": "This is a due date"
+            "due_date": "This is a due date",
+            "id": 2
         }
     ]
 }
