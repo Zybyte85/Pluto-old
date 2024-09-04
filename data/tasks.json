@@ -6,6 +6,12 @@
             "due_date": "This is a due date",
             "due_time": "This is a due time",
             "id": 0
+        },
+        {
+            "text": "New task",
+            "due_date": "00:00:00",
+            "due_time": "Sat Jan 1 2000",
+            "id": 46
         }
     ],
     "medium": [
@@ -15,6 +21,12 @@
             "due_date": "This is a due date",
             "due_time": "This is a due time",
             "id": 1
+        },
+        {
+            "text": "alskdj ",
+            "due_date": "00:00:00",
+            "due_time": "Sat May 3 1924",
+            "id": 47
         }
     ],
     "low": [

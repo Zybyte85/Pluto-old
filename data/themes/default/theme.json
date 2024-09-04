@@ -1,0 +1,18 @@
+{
+    "info": [
+        {
+        "name": "Default Dark",
+        "author": "Caden Stephens",
+        "description": "The default dark theme."
+        }
+    ],
+    "style": [
+        {
+            "high_priority": "background-color: #20e361; color: #000000; border: none; border-radius: 4px; padding:4px 4px;",
+            "medium_priority": "background-color: #ffe600; color: #000000; border: none; border-radius: 4px; padding:4px 4px;",
+            "low_priority": "background-color: #e86541; color: #000000; border: none; border-radius: 4px; padding:4px 4px;",
+
+            "main_window": "background-color: #292E32; border: none;"
+        }
+    ]
+}

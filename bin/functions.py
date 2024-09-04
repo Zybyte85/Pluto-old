@@ -1,21 +1,18 @@
 import os
 import json
 
-app_path = os.path.dirname(os.path.dirname(__file__))
-
-
 def handle_button_click(button):
     button_text = button.text()  # Get the text of the button
     print("Button pressed:", button_text)
 
 
 def load_json(filename="data/tasks.json"):
-    with open(os.path.join(app_path, filename), "r") as file:
+    with open(filename, "r") as file:
         return json.load(file)
 
 
 def write_json(new_data, priority, filename="data/tasks.json"):
-    with open(os.path.join(app_path, filename), "r+") as file:
+    with open(filename, "r+") as file:
         # First we load existing data into a dict.
         file_data = json.load(file)
         # Join new_data with file_data inside emp_details

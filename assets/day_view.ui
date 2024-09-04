@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Planner</string>
+   <string>Pluto</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #292E32</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
