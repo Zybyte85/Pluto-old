@@ -8,7 +8,9 @@ import json
 from functions import *
 
 # Set some variables
-theme = json.load(open('data/themes/default/theme.json', 'r'))
+theme_path = 'themes/default-dark/'
+
+theme_json = json.load(open(theme_path + 'theme.json', 'r'))
 
 id_file_path = 'data/id_file.txt'
 
@@ -40,11 +42,11 @@ class Application:
 
         # Set some properties and load some icons
         self.ui.settingsButton.setIcon(
-            QIcon('assets/SettingsGear.png')
+            QIcon(theme_path + 'icons/settings.png')
         )
         self.ui.settingsButton.setIconSize(QSize(38, 38))
         self.ui.calendarButton.setIcon(
-            QIcon('assets/CalendarIcon.png')
+            QIcon(theme_path + 'icons/calendar.png')
         )
         self.ui.calendarButton.setIconSize(QSize(32, 32))
         self.ui.newButton.clicked.connect(self.handle_new_button_click)
@@ -87,14 +89,14 @@ class Application:
             )  # Write the updated value back to the file
 
         if priority == 'high':
-            task.setStyleSheet(theme['style'][0]['high_priority'])
+            task.setStyleSheet(theme_json['style'][0]['high_priority'])
             self.ui.HighPriorityLayout.addWidget(task)
         elif priority == 'medium':
-            task.setStyleSheet(theme['style'][0]['medium_priority'])
+            task.setStyleSheet(theme_json['style'][0]['medium_priority'])
             self.ui.MediumPriorityLayout.addWidget(task)
         elif priority == 'low':
             self.ui.LowPriorityLayout.addWidget(task)
-            task.setStyleSheet(theme['style'][0]['low_priority'])
+            task.setStyleSheet(theme_json['style'][0]['low_priority'])
 
     def handle_new_button_click(self):
         '''
@@ -136,7 +138,7 @@ class Dialog:
 
 if __name__ == '__main__':
     app = Application('assets/day_view.ui')
-    app.ui.setStyleSheet(theme['style'][0]['main_window'])
+    app.ui.setStyleSheet(theme_json['style'][0]['main_window'])
     load_tasks_from_dict(Application, app, load_json())
 
     # Start the application's event loop
