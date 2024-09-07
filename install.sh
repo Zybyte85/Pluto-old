@@ -2,6 +2,6 @@
 
 # This packages the project into an executable
 
-pip install pyinstaller
+pip install -r requirements.txt
 
 pyinstaller --onefile --windowed bin/main.py

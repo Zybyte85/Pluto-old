@@ -4,7 +4,6 @@
             "text": "This is a high priority task",
             "description": "this is a description",
             "due_date": "This is a due date",
-            "due_time": "This is a due time",
             "id": 0
         }
     ],
@@ -13,7 +12,6 @@
             "text": "This is a medium priority task",
             "description": "this is a description",
             "due_date": "This is a due date",
-            "due_time": "This is a due time",
             "id": 1
         }
     ],
@@ -22,7 +20,6 @@
             "text": "This is a low priority task",
             "description": "this is a description",
             "due_date": "This is a due date",
-            "due_time": "This is a due time",
             "id": 2
         }
     ]
