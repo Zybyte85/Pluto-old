@@ -16,7 +16,7 @@ id_file_path = 'data/id_file.txt'
 
 
 class Application:
-    def __init__(self, ui_file):
+    def __init__(self, ui_file, ui_name = 'main'):
         '''
         Constructor for the Application class.
 
@@ -24,6 +24,7 @@ class Application:
         loads the specified ui file, sets some properties, and loads some icons.
 
         :param ui_file: The path to the ui file to load.
+        :param ui_name: The name of the ui to load.
         '''
         QApplication.setAttribute(Qt.AA_ShareOpenGLContexts)
 
@@ -40,16 +41,19 @@ class Application:
         except FileNotFoundError:
             print(f'File not found: {ui_file}')
 
-        # Set some properties and load some icons
-        self.ui.settingsButton.setIcon(
-            QIcon(theme_path + 'icons/settings.png')
-        )
-        self.ui.settingsButton.setIconSize(QSize(38, 38))
-        self.ui.calendarButton.setIcon(
-            QIcon(theme_path + 'icons/calendar.png')
-        )
-        self.ui.calendarButton.setIconSize(QSize(32, 32))
-        self.ui.newButton.clicked.connect(self.handle_new_button_click)
+        # Set some properties and load some icons if it is the main window
+        if ui_name == 'main':
+            self.ui.setWindowTitle('Pluto')
+            self.ui.settingsButton.setIcon(
+                QIcon(theme_path + 'icons/settings.png')
+            )
+            self.ui.settingsButton.setIconSize(QSize(38, 38))
+            self.ui.settingsButton.clicked.connect(replace_main_window("assets/settings.ui"))
+            self.ui.calendarButton.setIcon(
+                QIcon(theme_path + 'icons/calendar.png')
+            )
+            self.ui.calendarButton.setIconSize(QSize(32, 32))
+            self.ui.newButton.clicked.connect(self.handle_new_button_click)
         self.ui.show()
 
     def make_task(self, priority, text, due_date, due_time, initial=False):
@@ -135,6 +139,11 @@ class Dialog:
         self.ui = self.loader.load('assets/new_task.ui')
         self.ui.show()
 
+def replace_main_window(ui_file_path):
+        if app is not None:
+            app.app.quit()
+            app = None
+        app = Application(ui_file_path)
 
 if __name__ == '__main__':
     app = Application('assets/day_view.ui')
